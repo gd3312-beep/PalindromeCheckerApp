@@ -1,34 +1,29 @@
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class PalindromeChecker {
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        Stack<Character> stack = new Stack<>();
+        String input = "refer";
 
-        System.out.println("Palindrome Checker App");
-        System.out.println("UC5: Stack-Based Palindrome Checker");
+        Deque<Character> deque = new ArrayDeque<>();
 
-        System.out.print("Enter a word: ");
-        String word = scanner.nextLine();
-
-        for(int i = 0; i < word.length(); i++) {
-            stack.push(word.charAt(i));
+        for (char c : input.toCharArray()) {
+            deque.addLast(c);
         }
 
-        String reversed = "";
+        boolean isPalindrome = true;
 
-        while(!stack.isEmpty()) {
-            reversed = reversed + stack.pop();
+        while (deque.size() > 1) {
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        if(word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome");
-        } else {
-            System.out.println(word + " is Not a Palindrome");
-        }
-
-
-        scanner.close();
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
