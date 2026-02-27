@@ -28,6 +28,7 @@ public class PalindromeChecker {
             System.out.println(word + " is Not a Palindrome");
         }
 
+
         scanner.close();
     }
 }
