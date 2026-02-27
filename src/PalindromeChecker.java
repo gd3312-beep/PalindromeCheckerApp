@@ -1,7 +1,15 @@
 public class PalindromeChecker {
     public static void main(String[] args){
-        System.out.println("Welcome to Palindrome Checker Management System ");
-        System.out.println("Version : 1.0");
-        System.out.println("System Initialized Successfully");
+        System.out.println("Palindrome Checker App");
+        System.out.println("UC2: Print a Hardcoded Palindrome Result");
+
+        String word = "madam";
+
+        if(word.equals("madam")) {
+            System.out.println(word + " is a Palindrome");
+        } else {
+            System.out.println(word + " is Not a Palindrome");
+        }
+
     }
 }
