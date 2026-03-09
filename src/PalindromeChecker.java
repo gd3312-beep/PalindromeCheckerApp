@@ -3,15 +3,22 @@ import java.util.Scanner;
 
 
 public class PalindromeChecker {
-    static boolean isPalindrome(String str, int start, int end) {
+    static boolean isPalindrome(String str) {
 
-        if (start >= end)
-            return true;
+        str = str.replaceAll("\\s+", "").toLowerCase();
 
-        if (str.charAt(start) != str.charAt(end))
-            return false;
+        int left = 0;
+        int right = str.length() - 1;
 
-        return isPalindrome(str, start + 1, end - 1);
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right))
+                return false;
+
+            left++;
+            right--;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
@@ -21,7 +28,7 @@ public class PalindromeChecker {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        if (isPalindrome(input, 0, input.length() - 1))
+        if (isPalindrome(input))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
